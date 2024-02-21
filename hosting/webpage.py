@@ -6,7 +6,7 @@ import streamlit as st
 
 
 # loading the saved model
-loaded_model = pickle.load(open("C:/Users/Devendra/.spyder-py3/hosting/trained_model.sav", 'rb'))
+loaded_model = pickle.load(open("hosting/trained_model.sav", 'rb'))
 
 
 # creating a function for Prediction
