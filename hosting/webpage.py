@@ -2,42 +2,29 @@ import numpy as np
 import pickle
 import streamlit as st
 
+# Loading the saved model
+loaded_model = pickle.load(open("C:/Users/Devendra/.spyder-py3/hosting/trained_model.sav", 'rb'))
 
-# loading the saved model
-loaded_model = pickle.load(open("hosting/trained_model.sav", 'rb'))
-
-
-# creating a function for Prediction
-
+# Creating a function for prediction
 def diabetes_prediction(input_data):
-    
+    # Convert input data to numeric values
+    input_data = [float(x) for x in input_data]
 
-    # changing the input_data to numpy array
-    input_data_as_numpy_array = np.asarray(input_data)
-
-    # reshape the array as we are predicting for one instance
-    input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+    # Reshape the array as we are predicting for one instance
+    input_data_reshaped = np.array(input_data).reshape(1, -1)
 
     prediction = loaded_model.predict(input_data_reshaped)
-    print(prediction)
 
-    if (prediction[0] == 0):
-      return 'The person is not diabetic'
+    if prediction[0] == 0:
+        return 'The person is not diabetic'
     else:
-      return 'The person is diabetic'
-  
-    
-  
+        return 'The person is diabetic'
+
 def main():
-    
-    
-    # giving a title
+    # Title of the web app
     st.title('Diabetes Prediction Web App')
     
-    
-    # getting the input data from the user
-    
-    
+    # Input fields for user data
     Pregnancies = st.text_input('Number of Pregnancies')
     Glucose = st.text_input('Glucose Level')
     BloodPressure = st.text_input('Blood Pressure value')
@@ -47,19 +34,17 @@ def main():
     DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
     Age = st.text_input('Age of the Person')
     
-    
-    # code for Prediction
-    diagnosis = ''
-    
-    # creating a button for Prediction
-    
+    # Button to trigger prediction
     if st.button('Diabetes Test Result'):
-        diagnosis = diabetes_prediction([Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age])
-        
-        
-    st.success(diagnosis)
+        if '' not in [Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age]:
+            diagnosis = diabetes_prediction([Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age])
+            st.success(diagnosis)
+        else:
+            st.error('Please fill in all input fields.')
+
 if __name__ == '__main__':
     main()
+
     
     
     
