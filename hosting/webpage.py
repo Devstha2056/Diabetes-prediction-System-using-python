@@ -3,7 +3,7 @@ import pickle
 import streamlit as st
 
 # Loading the saved model
-loaded_model = pickle.load(open("C:/Users/Devendra/.spyder-py3/hosting/trained_model.sav", 'rb'))
+loaded_model = pickle.load(open("hosting/trained_model.sav", 'rb'))
 
 # Creating a function for prediction
 def diabetes_prediction(input_data):
