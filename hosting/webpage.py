@@ -28,9 +28,9 @@ def main():
     pregnancies = st.number_input('Number of Pregnancies', min_value=0, max_value=20, step=1)
     glucose = st.number_input('Glucose Level', min_value=0, max_value=200, step=1)
     blood_pressure = st.number_input('Blood Pressure value', min_value=0, max_value=150, step=1)
-    skin_thickness = st.number_input('Skin Thickness value', min_value=0, max_value=100, step=1)
+    skin_thickness = st.number_input('Skin Thickness value', min_value=0, max_value=150, step=1)
     insulin = st.number_input('Insulin Level', min_value=0, max_value=1000, step=1)
-    bmi = st.number_input('BMI value', min_value=0.0, max_value=60.0, step=0.1)
+    bmi = st.number_input('BMI value', min_value=0.0, max_value=100.0, step=0.1)
     diabetes_pedigree_function = st.number_input('Diabetes Pedigree Function value', min_value=0.0, max_value=2.5, step=0.01)
     age = st.number_input('Age of the Person', min_value=0, max_value=150, step=1)
     
