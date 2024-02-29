@@ -36,11 +36,11 @@ def main():
     
     # Button to trigger prediction
     if st.button('Diabetes Test Result'):
+          diagnosis = diabetes_prediction([pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age])
+         st.success(diagnosis)
         if '' not in [pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age]:
-            st.error('Please fill in all input fields.')
         else:
-            diagnosis = diabetes_prediction([pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age])
-            st.success(diagnosis)
+             st.error('Please fill in all input fields.')
 
 if __name__ == '__main__':
     main()
