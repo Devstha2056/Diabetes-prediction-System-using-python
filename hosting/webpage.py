@@ -13,9 +13,13 @@ def diabetes_prediction(input_data):
     prediction = loaded_model.predict(input_data_reshaped)
 
     if prediction[0] == 0:
-        return 'The person is not diabetic'
+        result = "not diabetic"
+        doctor_suggestion = "Based on the provided information, you seem to be at low risk of diabetes. However, it's always important to maintain a healthy lifestyle and regular check-ups with your doctor."
     else:
-        return 'The person is diabetic'
+        result = "diabetic"
+        doctor_suggestion = "Based on the provided information, you appear to have a higher risk of diabetes. It is recommended to consult with a healthcare professional for further evaluation and guidance."
+
+    return f"The model predicts that the person is {result}. {doctor_suggestion}"
 
 def main():
     # Title of the web app
@@ -25,10 +29,10 @@ def main():
     pregnancies = st.number_input('Number of Pregnancies', value=None, max_value=20)
     glucose = st.number_input('Glucose Level', value=None, max_value=200)
     blood_pressure = st.number_input('Blood Pressure value', value=None, max_value=150)
-    skin_thickness = st.number_input('Skin Thickness value', value=None, max_value=100)
+    skin_thickness = st.number_input('Skin Thickness value', value=None, max_value=150)
     insulin = st.number_input('Insulin Level', value=None, max_value=1000)
-    bmi = st.number_input('BMI value', value=None, max_value=60.0)
-    diabetes_pedigree_function = st.number_input('Diabetes Pedigree Function value', value=None, max_value=2.5)
+    bmi = st.number_input('BMI value', value=None, max_value=100.0)
+    diabetes_pedigree_function = st.number_input('Diabetes Pedigree Function value', value=None, max_value=2.50000)
     age = st.number_input('Age of the Person', value=None, max_value=150)
     
     diagnosis = ''
