@@ -36,7 +36,7 @@ def main():
     # Creating a button for Prediction
     if st.button('Test Result'):
         # Check if any input field is empty
-        if '' not  in [pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age]:
+        if None in [pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age]:
             st.error('Please fill in all input fields.')
         else:
             diagnosis = diabetes_prediction([pregnancies, glucose, blood_pressure, skin_thickness, insulin, bmi, diabetes_pedigree_function, age])
