@@ -83,7 +83,7 @@ def main():
     # pregnancies = st.number_input('Number of Pregnancies', value=None,max_value=20)
     glucose = st.number_input('Glucose Level (mg/dL)', value=None,min_value=0, max_value=200,placeholder="Insert the value between 0 to 200")
     blood_pressure = st.number_input('Blood Pressure (mm Hg)', value=None,min_value=0, max_value=150,placeholder="Insert the value between 0 to 150")
-    skin_thickness = st.number_input('Skin Thickness (mm)', value=None,min_value=0, max_value=100,placeholder="Insert the value between 0 to 100")
+    skin_thickness = st.number_input('Skin Thickness (mm)', value=None,min_value=0, max_value=150,placeholder="Insert the value between 0 to 100")
     insulin = st.number_input('Insulin Level (mu U/ml)', value=None, min_value=0,max_value=1000,placeholder="Insert the value between 0 to 1000")
     bmi = st.number_input('BMI (Body Mass Index)', value=None,min_value=0.0, max_value=100.0,placeholder="Insert the value between 0 to 100")
     diabetes_pedigree_function = st.number_input('Diabetes Pedigree Function', value=None,min_value=0.0, max_value=2.5, format='%f',placeholder="Insert the value between 0 to 2.5")
